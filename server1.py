@@ -12,30 +12,32 @@ window.geometry("400x400")
 
 #row 1
 
-leftTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+leftTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 11)
 leftTopBtn.grid(column = 1, row = 1)
-centerTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+centerTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 21)
 centerTopBtn.grid(column = 2, row = 1)
-rightTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+rightTopBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 31)
 rightTopBtn.grid(column = 3, row = 1)
 
 #row 2
-leftCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+leftCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 12)
 leftCenterBtn.grid(column = 1, row = 2)
-centerCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+centerCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 22)
 centerCenterBtn.grid(column = 2, row = 2)
-rightCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+rightCenterBtn = Button(window, text = " ", bg = "white", width = 6, height = 3,  command = 32)
 rightCenterBtn.grid(column = 3, row = 2)
 
 #row 3
-leftBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+leftBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 13)
 leftBottomBtn.grid(column = 1, row = 3)
-centerBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+centerBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3, command = 23)
 centerBottomBtn.grid(column = 2, row = 3)
-rightBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3)
+rightBottomBtn = Button(window, text = " ", bg = "white", width = 6, height = 3,  command = 33)
 rightBottomBtn.grid(column = 3, row = 3)
 
 window.mainloop()
+
+playerAktif = True
 
 class ClientThread(threading.Thread):
     def __init__(self,clientAddress,clientsocket):
@@ -44,7 +46,6 @@ class ClientThread(threading.Thread):
         print ("New connection added: ", clientAddress)
     def run(self):
         print ("Connection from : ", clientAddress)
-        #self.csocket.send(bytes("Hi, This is from Server..",'utf-8'))
         msg = ''
         while True:
             data = self.csocket.recv(2048)
